@@ -1,0 +1,8 @@
+#!/bin/zsh
+
+# Mainly for macOS + brew
+
+rm ~/.lastupdatetime
+touch ~/.lastupdatetime
+
+date +%s > ~/.lastupdatetime

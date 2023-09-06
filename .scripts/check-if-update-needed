@@ -1,0 +1,25 @@
+#!/bin/zsh
+
+# Updates should run every 30 days
+# Mainly for macOS + brew
+
+# Get the last update time
+LAST_UPDATE_TIME=$(cat ~/.lastupdatetime > /dev/null 2> /dev/null && cat ~/.lastupdatetime || echo "0")
+# Convert to int
+LAST_UPDATE_TIME=$((LAST_UPDATE_TIME))
+
+# Get the next update time
+# +2592000 = 30 days
+NEXT_UPDATE_TIME=$((LAST_UPDATE_TIME + 2592000))
+
+# Get current time
+CURRENT_TIME=$(date +%s)
+# Convert to int
+CURRENT_TIME=$((CURRENT_TIME))
+
+if [[ NEXT_UPDATE_TIME -lt CURRENT_TIME ]]
+then
+    echo "1"
+else
+    echo "0"
+fi
