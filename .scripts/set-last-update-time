@@ -2,7 +2,7 @@
 
 # Mainly for macOS + brew
 
-rm ~/.lastupdatetime
+rm ~/.lastupdatetime > /dev/null 2> /dev/null
 touch ~/.lastupdatetime
 
 date +%s > ~/.lastupdatetime

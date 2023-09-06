@@ -22,11 +22,33 @@ zstyle ':omz:update' mode auto
 echo "Now loading Oh My Zsh..."
 source $ZSH/oh-my-zsh.sh
 
+echo "Setting alias'..."
+# macOS specific
+# alias update="brew upgrade;set-last-update-time;tput bel"
+
 echo "Exporting custom variables..."
 export EDITOR=nvim
 
 echo "Sourcing scripts..."
 source ~/.scripts
+
+# macOS specific
+# echo "Checking if updates are needed..."
+# UPDATE_NEEDED=$(check-if-update-needed)
+# UPDATE_NEEDED=$((UPDATE_NEEDED))
+# 
+# if [[ UPDATE_NEEDED -eq 1 ]]
+# then
+#     clear
+#     echo "Brew hasn't been updated in over 30 days - update is needed."
+#     if read -q "choice?Press Y to continue, or anything else to dismiss... "
+#     then
+#         clear
+#         update
+#         echo "Up to date"
+#     fi
+# fi
+
 echo "\n"
 
 clear
