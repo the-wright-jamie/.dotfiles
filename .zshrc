@@ -15,7 +15,7 @@ export ZSH="/Users/james.wright/.oh-my-zsh"
 ZSH_THEME="xiong-chiamiov"
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
-plugins=(zsh-syntax-highlighting)
+plugins=(zsh-syntax-highlighting zsh-autosuggestions)
 
 zstyle ':omz:update' mode auto
 
