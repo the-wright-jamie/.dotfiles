@@ -23,6 +23,9 @@ echo "Now loading Oh My Zsh..."
 source $ZSH/oh-my-zsh.sh
 
 echo "Setting alias'..."
+alias vimdiff='nvim -d'
+alias vim="nvim"
+alias vi="nvim"
 # macOS specific
 # alias update="brew upgrade;set-last-update-time;tput bel"
 
