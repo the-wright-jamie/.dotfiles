@@ -26,6 +26,7 @@ echo "Setting alias'..."
 alias vimdiff='nvim -d'
 alias vim="nvim"
 alias vi="nvim"
+alias cat="bat"
 # macOS specific
 # alias update="brew upgrade;set-last-update-time;tput bel"
 
