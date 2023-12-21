@@ -1,4 +1,5 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
@@ -16,6 +17,9 @@ vim.g.mapleader = " "
 require("lazy").setup({
   "wakatime/vim-wakatime",
   "nvim-lualine/lualine.nvim",
+  { "neoclide/coc.nvim", branch = "release" }
 })
 
 require('lualine').setup()
+
+vim.opt.relativenumber = true
