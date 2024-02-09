@@ -2,6 +2,9 @@
 #
 # version = "0.90.1"
 
+alias vim = nvim
+alias vi = nvim
+
 # For more information on defining custom themes, see
 # https://www.nushell.sh/book/coloring_and_theming.html
 # And here is the theme collection
@@ -215,7 +218,7 @@ $env.config = {
     }
 
     filesize: {
-        metric: false # true => KB, MB, GB (ISO standard), false => KiB, MiB, GiB (Windows standard)
+        metric: true # true => KB, MB, GB (ISO standard), false => KiB, MiB, GiB (Windows standard)
         format: "auto" # b, kb, kib, mb, mib, gb, gib, tb, tib, pb, pib, eb, eib, auto
     }
 
@@ -256,7 +259,7 @@ $env.config = {
         {
             name: completion_menu
             only_buffer_difference: false
-            marker: "| "
+            marker: " => "
             type: {
                 layout: columnar
                 columns: 4
@@ -274,7 +277,7 @@ $env.config = {
         {
             name: ide_completion_menu
             only_buffer_difference: false
-            marker: "| "
+            marker: " => "
             type: {
                 layout: ide
                 min_completion_width: 0,
@@ -307,7 +310,7 @@ $env.config = {
         {
             name: history_menu
             only_buffer_difference: true
-            marker: "? "
+            marker: " ?? "
             type: {
                 layout: list
                 page_size: 10
@@ -321,7 +324,7 @@ $env.config = {
         {
             name: help_menu
             only_buffer_difference: true
-            marker: "? "
+            marker: " ?? "
             type: {
                 layout: description
                 columns: 4
