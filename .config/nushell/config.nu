@@ -4,7 +4,7 @@
 
 alias vim = nvim
 alias vi = nvim
-alias icat = "kitten icat"
+alias icat = kitten icat
 
 # For more information on defining custom themes, see
 # https://www.nushell.sh/book/coloring_and_theming.html
