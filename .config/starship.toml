@@ -31,36 +31,37 @@ disabled = false
 style = "bg:color_blue fg:color_black"
 
 [os.symbols]
-Windows = "󰍲"
-Ubuntu = "󰕈"
-SUSE = ""
-Raspbian = "󰐿"
-Mint = "󰣭"
-Macos = "󰀵"
-Manjaro = ""
-Linux = "󰌽"
-Gentoo = "󰣨"
-Fedora = "󰣛"
-Alpine = ""
-Amazon = ""
-Android = ""
-Arch = "󰣇"
-Artix = "󰣇"
-CentOS = ""
-Debian = "󰣚"
-Redhat = "󱄛"
-RedHatEnterprise = "󱄛"
+Windows = "󰍲 "
+Ubuntu = "󰕈 "
+SUSE = " "
+Raspbian = "󰐿 "
+Mint = "󰣭 "
+Macos = "󰀵 "
+Manjaro = " "
+Linux = "󰌽 "
+Gentoo = "󰣨 "
+Fedora = "󰣛 "
+Alpine = " "
+Amazon = " "
+Android = " "
+Arch = "󰣇 "
+Artix = "󰣇 "
+CentOS = " "
+Debian = "󰣚 "
+Redhat = "󱄛 "
+RedHatEnterprise = "󱄛 "
 
 [hostname]
 ssh_only = false
 style = "bg:color_blue fg:color_black"
-format = '[ $hostname ]($style)'
+format = '[$hostname ]($style)'
 
 [directory]
 style = "fg:color_black bg:color_yellow"
 format = "[ $path ]($style)"
+truncate_to_repo = true
 truncation_length = 3
-truncation_symbol = "󱧰 "
+truncation_symbol = ".../"
 
 [directory.substitutions]
 "Documents" = "󰈙 "
