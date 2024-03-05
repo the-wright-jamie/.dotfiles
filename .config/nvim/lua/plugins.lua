@@ -18,13 +18,13 @@ local plugin_specs = {
 	{ "wakatime/vim-wakatime", lazy = false },
 	{ "nvim-lua/plenary.nvim" },
 	{ "sainnhe/gruvbox-material", lazy = true },
-	{
+	--[[{
 	    "nvim-lualine/lualine.nvim",
 	    event = "VeryLazy",
 	    config = function()
 	      require("config.statusline")
 	    end,
-	},
+	},]]--
 	-- telescope
 	{
 		"nvim-telescope/telescope.nvim",
