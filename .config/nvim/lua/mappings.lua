@@ -4,7 +4,7 @@ local uv = vim.loop
 
 keymap.set("n", "<leader>q", "<cmd>x<cr>", { silent = true, desc = "Quit current window" })
 keymap.set("n", "<leader>Q", "<cmd>qa!<cr>", { silent = true, desc = "Force quit nvim" })
-keymap.set("n", "<leader>q", "<cmd>q<cr>", { silent = true, desc = "Soft quit nvim"})
+keymap.set("n", "<leader>q", "<cmd>wq<cr>", { silent = true, desc = "Save and quit nvim"})
 keymap.set("n", "<leader>w", "<cmd>w<cr>", { desc = "Save" })
 
 keymap.set("n", "<leader>sv", function()

@@ -17,7 +17,9 @@ vim.opt.rtp:prepend(lazypath)
 local plugin_specs = {
 	{ "wakatime/vim-wakatime", lazy = false },
 	{ "nvim-lua/plenary.nvim" },
-	{ "sainnhe/gruvbox-material", lazy = true },
+	{ "williamboman/mason.nvim" },
+	{ "fladson/vim-kitty" },
+	{ "Shadorain/shadotheme" },
 	--[[{
 	    "nvim-lualine/lualine.nvim",
 	    event = "VeryLazy",
