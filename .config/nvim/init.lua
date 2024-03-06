@@ -3,11 +3,11 @@ vim.loader.enable()
 local core_conf_files = {
 	"options.vim",
 	"globals.lua",
-	"mappings.lua",
 	"plugins.lua",
+	"mappings.lua",
 }
 
-local viml_conf_dir = vim.fn.stdpath("config") .. "/viml_conf"
+local viml_conf_dir = vim.fn.stdpath("config") .. "/vim_lang"
 -- source all config files
 for _, file_name in ipairs(core_conf_files) do
 	if vim.endswith(file_name, 'vim') then
