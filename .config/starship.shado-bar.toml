@@ -1,0 +1,94 @@
+add_newline = false
+
+format = """
+[](color_blue)\
+$os\
+$hostname\
+[](bg:color_yellow fg:color_blue)\
+$directory\
+[](fg:color_yellow bg:color_white)\
+$git_branch\
+$git_status\
+[](fg:color_white bg:color_black)\
+$time\
+[ ](fg:color_black)\
+\n$character"""
+
+palette = 'shado'
+
+[palettes.shado]
+color_fg0 = '#e3c7fc'
+color_bg1 = '#191724'
+color_blue = '#bd93f9'
+color_green = '#FF4971'
+color_magenta = '#E9729D'
+color_cyan = "#F18FB0"
+color_red = '#B52A5B'
+color_yellow = '#8897F4'
+color_black = "#140a1d"
+color_white = "#f1c4e0"
+
+[os]
+disabled = false
+style = "bg:color_blue fg:color_black"
+
+[os.symbols]
+Windows = "󰍲 "
+Ubuntu = "󰕈 "
+SUSE = " "
+Raspbian = "󰐿 "
+Mint = "󰣭 "
+Macos = "󰀵 "
+Manjaro = " "
+Linux = "󰌽 "
+Gentoo = "󰣨 "
+Fedora = "󰣛 "
+Alpine = " "
+Amazon = " "
+Android = " "
+Arch = "󰣇 "
+Artix = "󰣇 "
+CentOS = " "
+Debian = "󰣚 "
+Redhat = "󱄛 "
+RedHatEnterprise = "󱄛 "
+
+[hostname]
+ssh_only = false
+style = "bg:color_blue fg:color_black"
+format = '[$hostname ]($style)'
+
+[directory]
+style = "fg:color_black bg:color_yellow"
+format = "[ $path ]($style)"
+truncate_to_repo = true
+truncation_length = 3
+truncation_symbol = ".../"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = "󰎆 "
+"Pictures" = " "
+"GitHub" = " "
+"Desktop" = " "
+
+[git_branch]
+symbol = ""
+style = "bg:color_white"
+format = '[[ $symbol $branch ](fg:color_black bg:color_white)]($style)'
+
+[git_status]
+style = "bg:color_white"
+format = '[[($all_status$ahead_behind )](fg:color_black bg:color_white)]($style)'
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "bg:color_black"
+format = '[[  $time ](fg:color_blue bg:color_black)]($style)'
+
+[character]
+disabled = false
+success_symbol = '[ ](bold fg:color_white)'
+error_symbol = '[ ](bold fg:#b52a5b)'

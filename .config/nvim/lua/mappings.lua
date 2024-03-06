@@ -12,8 +12,8 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = "Telescope Help Ta
     -- LazyGit
 vim.keymap.set('n', '<leader>gg', "<cmd>LazyGit<cr>", { desc = "Show LazyGit" })
     -- Quitting leader maps
-keymap.set("n", "<leader>qQ", "<cmd>qa!<cr>", { silent = true, desc = "Force quit nvim" })
-keymap.set("n", "<leader>qq", "<cmd>q<cr>", { silent = true, desc = "Quit"})
+keymap.set("n", "<leader>Q", "<cmd>qa!<cr>", { silent = true, desc = "Force quit nvim" })
+keymap.set("n", "<leader>q", "<cmd>q<cr>", { silent = true, desc = "Quit"})
 keymap.set("n", "<leader>wq", "<cmd>wq<cr>", { silent = true, desc = "Save and quit"})
 keymap.set("n", "<leader>ww", "<cmd>w<cr>", { desc = "Save" })
 
