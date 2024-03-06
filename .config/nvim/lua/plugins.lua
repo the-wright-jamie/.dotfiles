@@ -16,14 +16,38 @@ vim.opt.rtp:prepend(lazypath)
 
 -- specify plugins
 local plugin_specs = {
+    {
+      "folke/which-key.nvim",
+      event = "VeryLazy",
+      init = function()
+        vim.o.timeout = true
+        vim.o.timeoutlen = 300
+      end,
+      opts = {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    },
+    -- Dashboard (default screen when no file is passed)
+    {
+      'nvimdev/dashboard-nvim',
+      event = 'VimEnter',
+      config = function()
+        require('dashboard').setup {}
+      end,
+      dependencies = { {'nvim-tree/nvim-web-devicons'} }
+    },
+    -- Discord Rich Presence
     { "andweeb/presence.nvim", lazy = false },
+    -- Telescope (finding files and navigating buffers)
     { "nvim-telescope/telescope.nvim",
         dependencies = { 
             "nvim-telescope/telescope-file-browser.nvim",
             "nvim-lua/plenary.nvim"
         }
     },
-    -- nvim v0.8.0
+    -- LazyGit - CLI front end for git
     {
         "kdheepak/lazygit.nvim",
     	cmd = {
@@ -38,6 +62,7 @@ local plugin_specs = {
             "nvim-lua/plenary.nvim",
         },
     },
+    -- CMP for autocomplete assisstance
     {
         "hrsh7th/nvim-cmp",
         -- event = 'InsertEnter',
@@ -55,25 +80,21 @@ local plugin_specs = {
             require("config.nvim-cmp")
         end,
     },
+    -- Wakatime for tracking usage
 	{ "wakatime/vim-wakatime", lazy = false },
+    -- decoration
 	{ "nvim-lua/plenary.nvim" },
+    -- LSP handler
 	{ "williamboman/mason.nvim" },
+    -- Pretty printing for kitty config
 	{ "fladson/vim-kitty" },
-	{ "Shadorain/shadotheme" },
+    -- Statusbar
 	{
         "nvim-lualine/lualine.nvim",
         event = "VeryLazy",
         config = function()
             require("config.statusline")
         end,
-	},
-	-- telescope
-	{
-		"nvim-telescope/telescope.nvim",
-		cmd = "Telescope",
-		dependencies = {
-			"nvim-telescope/telescope-symbols.nvim",
-		},
 	},
 }
 
