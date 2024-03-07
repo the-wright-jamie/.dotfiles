@@ -4,6 +4,14 @@ local uv = vim.loop
 local builtin = require('telescope.builtin')
 
 -- Normal Mode Maps
+    -- Toggles
+vim.keymap.set('n', '<leader>tw', function()
+    vim.cmd([[
+        set wrap!
+    ]])
+    vim.notify("Wrapping toggled", vim.log.levels.INFO, { title = "wrapping" })
+end, 
+    { desc = "Toggle wrapping" })
     -- Telescope
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = "File files" })
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = "Live grep" })

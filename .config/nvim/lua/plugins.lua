@@ -34,12 +34,16 @@ local plugin_specs = {
       'nvimdev/dashboard-nvim',
       event = 'VimEnter',
       config = function()
-        require('dashboard').setup {}
+        require("config.dashboard")
       end,
       dependencies = { {'nvim-tree/nvim-web-devicons'} }
     },
     -- Discord Rich Presence
-    { "andweeb/presence.nvim", lazy = false },
+    { "andweeb/presence.nvim", config = function()
+        require("config.discord-rp")
+        end,
+        lazy = false 
+    },
     -- Telescope (finding files and navigating buffers)
     { "nvim-telescope/telescope.nvim",
         dependencies = { 
@@ -81,21 +85,25 @@ local plugin_specs = {
         end,
     },
     -- Wakatime for tracking usage
-	{ "wakatime/vim-wakatime", lazy = false },
+    { "wakatime/vim-wakatime", lazy = false },
     -- decoration
-	{ "nvim-lua/plenary.nvim" },
+    { "nvim-lua/plenary.nvim" },
     -- LSP handler
-	{ "williamboman/mason.nvim" },
+    { "williamboman/mason.nvim", 
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+        },
+    },
     -- Pretty printing for kitty config
-	{ "fladson/vim-kitty" },
+    { "fladson/vim-kitty" },
     -- Statusbar
-	{
+    {
         "nvim-lualine/lualine.nvim",
         event = "VeryLazy",
         config = function()
             require("config.statusline")
         end,
-	},
+    },
 }
 
 -- configuration for lazy itself.

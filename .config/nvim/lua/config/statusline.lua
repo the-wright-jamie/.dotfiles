@@ -163,9 +163,9 @@ require("lualine").setup {
       {
         "fileformat",
         symbols = {
-          unix = "unix",
-          dos = "win",
-          mac = "mac",
+          unix = " ",
+          dos = "󰨡 ",
+          mac = "󰀶 ",
         },
       },
       "filetype",
