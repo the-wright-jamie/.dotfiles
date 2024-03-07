@@ -20,3 +20,8 @@ for _, file_name in ipairs(core_conf_files) do
 		require(module_name)
 	end
 end
+
+current_theme = "rose-pine"
+
+color = color or current_theme 
+vim.cmd.colorscheme(color)

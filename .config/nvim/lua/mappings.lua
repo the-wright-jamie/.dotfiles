@@ -4,26 +4,30 @@ local uv = vim.loop
 local builtin = require('telescope.builtin')
 
 -- Normal Mode Maps
+    -- Packages etc
+keymap.set('n', '<leader>po', '<cmd>Lazy<cr>', { desc = "Open Lazy Package Manager" })
+keymap.set('n', '<leader>pm', '<cmd>Mason<cr>', { desc = "Open Mason" })
     -- Toggles
-vim.keymap.set('n', '<leader>tw', function()
-    vim.cmd([[
+keymap.set('n', '<leader>tw', function()
+    cmd([[
         set wrap!
     ]])
-    vim.notify("Wrapping toggled", vim.log.levels.INFO, { title = "wrapping" })
-end, 
+    notify("Wrapping toggled", vim.log.levels.INFO, { title = "wrapping" })
+end,
     { desc = "Toggle wrapping" })
     -- Telescope
-vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = "File files" })
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = "Live grep" })
-vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = "Explore buffers" })
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = "Telescope Help Tags" })
+keymap.set('n', '<leader>ff', builtin.find_files, { desc = "Find files" })
+keymap.set('n', '<leader>fg', builtin.git_files, { desc = "Find files in git" })
+keymap.set('n', '<leader>fi', builtin.grep_string, { desc = "Find string" })
+keymap.set('n', '<leader>fb', builtin.buffers, { desc = "Explore buffers" })
+keymap.set('n', '<leader>fe', vim.cmd.Ex, { desc = "File explorer" })
     -- LazyGit
-vim.keymap.set('n', '<leader>gg', "<cmd>LazyGit<cr>", { desc = "Show LazyGit" })
+    -- Mapped to the command alias
+keymap.set('n', '<leader>lg', "<cmd>LazyGit<cr>", { desc = "Show LazyGit" })
     -- Quitting leader maps
-keymap.set("n", "<leader>Q", "<cmd>qa!<cr>", { silent = true, desc = "Force quit nvim" })
+keymap.set("n", "<leader>Q", "<cmd>wqa<cr>", { silent = true, desc = "Save all buffers and quit" })
 keymap.set("n", "<leader>q", "<cmd>q<cr>", { silent = true, desc = "Quit"})
-keymap.set("n", "<leader>wq", "<cmd>wq<cr>", { silent = true, desc = "Save and quit"})
-keymap.set("n", "<leader>ww", "<cmd>w<cr>", { desc = "Save" })
+keymap.set("n", "<leader>w", "<cmd>wa<cr>", { desc = "Save all open buffers" })
 
     -- Reload Config
 keymap.set("n", "<leader>sv", function()
@@ -37,8 +41,5 @@ end, {
   desc = "reload init.lua",
 })
 
-    -- Lazy Mappings
-keymap.set("n", "<leader>ll", "Lazy", { silent = true, desc = "Open Lazy" })
-
-keymap.set("n", "<leader><space>", "<cmd>StripTrailingWhitespace<cr>", { desc = "Remove trailing space" })
+keymap.set("n", "<leader><space>", "<cmd>%s/\\s\\+$//e<cr><C-o>", { desc = "Remove trailing space" })
 keymap.set("i", "jj", "<Esc>", { silent = true, desc = "Return to Normal Mode from Insert" })
