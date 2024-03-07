@@ -15,8 +15,8 @@ vim.opt.rtp:prepend(lazypath)
 -- specify plugins
 local plugin_specs = {
     -- better syntax highlighting
-    { 
-        "nvim-treesitter/nvim-treesitter", 
+    {
+        "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
         config = function()
             require("config.treesitter")
@@ -48,17 +48,17 @@ local plugin_specs = {
         dependencies = { {'nvim-tree/nvim-web-devicons'} }
     },
     -- Discord Rich Presence
-    { 
+    {
         "andweeb/presence.nvim",
         config = function()
             require("config.discord-rp")
         end,
-        lazy = false 
+        lazy = false
     },
     -- Telescope (finding files and navigating buffers)
-    { 
+    {
         "nvim-telescope/telescope.nvim",
-        dependencies = { 
+        dependencies = {
             "nvim-telescope/telescope-file-browser.nvim",
             "nvim-lua/plenary.nvim"
         }
@@ -85,7 +85,7 @@ local plugin_specs = {
     { 'neovim/nvim-lspconfig' },
     { 'hrsh7th/cmp-nvim-lsp' },
     { 'hrsh7th/nvim-cmp' },
-    { 'L3MON4D3/LuaSnip' }, 
+    { 'L3MON4D3/LuaSnip' },
     -- Wakatime for tracking usage
     { "wakatime/vim-wakatime", lazy = false },
     -- decoration
@@ -159,7 +159,7 @@ lsp_zero.on_attach(function(client, bufnr)
 })
 end)
 
--- here you can setup the language servers 
+-- here you can setup the language servers
 require('mason-lspconfig').setup({
   ensure_installed = {},
   handlers = {

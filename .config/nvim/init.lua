@@ -23,5 +23,5 @@ end
 
 current_theme = "rose-pine"
 
-color = color or current_theme 
+color = color or current_theme
 vim.cmd.colorscheme(color)

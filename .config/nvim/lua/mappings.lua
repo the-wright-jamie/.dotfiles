@@ -4,7 +4,7 @@ local uv = vim.loop
 local builtin = require('telescope.builtin')
 
 -- Normal Mode Maps
-    -- Packages etc
+    -- Packages etc 
 keymap.set('n', '<leader>po', '<cmd>Lazy<cr>', { desc = "Open Lazy Package Manager" })
 keymap.set('n', '<leader>pm', '<cmd>Mason<cr>', { desc = "Open Mason" })
     -- Toggles
@@ -13,7 +13,7 @@ keymap.set('n', '<leader>tw', function()
         set wrap!
     ]])
     notify("Wrapping toggled", vim.log.levels.INFO, { title = "wrapping" })
-end,
+end, 
     { desc = "Toggle wrapping" })
     -- Telescope
 keymap.set('n', '<leader>ff', builtin.find_files, { desc = "Find files" })
@@ -41,5 +41,5 @@ end, {
   desc = "reload init.lua",
 })
 
-keymap.set("n", "<leader><space>", "<cmd>%s/\\s\\+$//e<cr><C-o>", { desc = "Remove trailing space" })
+keymap.set("n", "<leader><space>", "<cmd>StripTrailingWhitespace<cr>", { desc = "Remove trailing space" })
 keymap.set("i", "jj", "<Esc>", { silent = true, desc = "Return to Normal Mode from Insert" })
