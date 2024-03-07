@@ -1,30 +1,5 @@
 local fn = vim.fn
 
-local function spell()
-  if vim.o.spell then
-    return string.format("[SPELL]")
-  end
-
-  return ""
-end
-
---- show indicator for Chinese IME
-local function ime_state()
-  if vim.g.is_mac then
-    -- ref: https://github.com/vim-airline/vim-airline/blob/master/autoload/airline/extensions/xkblayout.vim#L11
-    local layout = fn.libcall(vim.g.XkbSwitchLib, "Xkb_Switch_getXkbLayout", "")
-
-    -- We can use `xkbswitch -g` on the command line to get current mode.
-    -- mode for macOS builtin pinyin IME: com.apple.inputmethod.SCIM.ITABC
-    -- mode for Rime: im.rime.inputmethod.Squirrel.Rime
-    local res = fn.match(layout, [[\v(Squirrel\.Rime|SCIM.ITABC)]])
-    if res ~= -1 then
-      return "[CN]"
-    end
-  end
-
-  return ""
-end
 
 local function trailing_space()
   if not vim.o.modifiable then
@@ -82,50 +57,14 @@ local function mixed_indent()
   end
 end
 
-local diff = function()
-  local git_status = vim.b.gitsigns_status_dict
-  if git_status == nil then
-    return
-  end
-
-  local modify_num = git_status.changed
-  local remove_num = git_status.removed
-  local add_num = git_status.added
-
-  local info = { added = add_num, modified = modify_num, removed = remove_num }
-  -- vim.print(info)
-  return info
-end
-
-local virtual_env = function()
-  -- only show virtual env for Python
-  if vim.bo.filetype ~= 'python' then
-    return ""
-  end
-
-  local conda_env = os.getenv('CONDA_DEFAULT_ENV')
-  local venv_path = os.getenv('VIRTUAL_ENV')
-
-  if venv_path == nil then
-    if conda_env == nil then
-      return ""
-    else
-      return string.format("  %s (conda)", conda_env)
-    end
-  else
-    local venv_name = vim.fn.fnamemodify(venv_path, ':t')
-    return string.format("  %s (venv)", venv_name)
-  end
-end
-
 require("lualine").setup {
   options = {
     icons_enabled = true,
     theme = "auto",
-    -- component_separators = { left = "", right = "" },
-    -- section_separators = { left = "", right = "" },
-    section_separators = "",
-    component_separators = "",
+    component_separators = { left = "", right = "" },
+    section_separators = { left = "", right = "" },
+    -- section_separators = "",
+    -- component_separators = "",
     disabled_filetypes = {},
     always_divide_middle = true,
   },
@@ -134,24 +73,12 @@ require("lualine").setup {
     lualine_b = {
       "branch",
       {
-        "diff",
-        source = diff,
-      },
-      {
-        virtual_env,
+        "hello",
         color = { fg = 'black', bg = "#F1CA81" }
       }
     },
     lualine_c = {
       "filename",
-      {
-        ime_state,
-        color = { fg = "black", bg = "#f46868" },
-      },
-      {
-        spell,
-        color = { fg = "black", bg = "#a7c080" },
-      },
       {
         "diagnostics",
         sources = { "nvim_diagnostic" },

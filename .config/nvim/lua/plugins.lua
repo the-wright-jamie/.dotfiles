@@ -86,6 +86,14 @@ local plugin_specs = {
     { 'hrsh7th/cmp-nvim-lsp' },
     { 'hrsh7th/nvim-cmp' },
     { 'L3MON4D3/LuaSnip' },
+    -- Lualine (fancy status bar)
+    {
+        "nvim-lualine/lualine.nvim",
+        event = "VeryLazy",
+        config = function()
+            require("config.statusline")
+        end,
+    },
     -- Wakatime for tracking usage
     { "wakatime/vim-wakatime", lazy = false },
     -- decoration

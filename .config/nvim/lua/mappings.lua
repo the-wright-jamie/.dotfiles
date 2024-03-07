@@ -26,6 +26,7 @@ keymap.set('n', '<leader>fe', vim.cmd.Ex, { desc = "File explorer" })
 keymap.set('n', '<leader>lg', "<cmd>LazyGit<cr>", { desc = "Show LazyGit" })
     -- Quitting leader maps
 keymap.set("n", "<leader>Q", "<cmd>wqa<cr>", { silent = true, desc = "Save all buffers and quit" })
+keymap.set("n", "<leader>x", "<cmd>bd<cr>", { silent = true, desc = "Close buffer"})
 keymap.set("n", "<leader>q", "<cmd>q<cr>", { silent = true, desc = "Quit"})
 keymap.set("n", "<leader>w", "<cmd>wa<cr>", { desc = "Save all open buffers" })
 
