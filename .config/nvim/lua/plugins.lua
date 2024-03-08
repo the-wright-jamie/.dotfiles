@@ -38,21 +38,11 @@ local plugin_specs = {
             -- refer to the configuration section below
         }
     },
-    -- Dashboard (default screen when no file is passed)
-    {
-        'nvimdev/dashboard-nvim',
-        event = 'VimEnter',
-        config = function()
-            require("config.dashboard")
-        end,
-        dependencies = { {'nvim-tree/nvim-web-devicons'} }
-    },
+    -- Add fancy icons
+    { 'nvim-tree/nvim-web-devicons' },
     -- Discord Rich Presence
     {
         "andweeb/presence.nvim",
-        config = function()
-            require("config.discord-rp")
-        end,
         lazy = false
     },
     -- Telescope (finding files and navigating buffers)
@@ -78,14 +68,31 @@ local plugin_specs = {
             "nvim-lua/plenary.nvim",
         },
     },
+    -- Whitespace highlighter-remover
+    { 'ntpeters/vim-better-whitespace', lazy = false },
     -- LSP stuff
     { 'williamboman/mason.nvim' },
     { 'williamboman/mason-lspconfig.nvim' },
     { 'VonHeikemen/lsp-zero.nvim', branch = 'v3.x' },
     { 'neovim/nvim-lspconfig' },
-    { 'hrsh7th/cmp-nvim-lsp' },
-    { 'hrsh7th/nvim-cmp' },
     { 'L3MON4D3/LuaSnip' },
+    {
+        "hrsh7th/nvim-cmp",
+        -- event = 'InsertEnter',
+        event = "VeryLazy",
+        dependencies = {
+            "hrsh7th/cmp-nvim-lsp",
+            "onsails/lspkind-nvim",
+            "hrsh7th/cmp-path",
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-omni",
+            "hrsh7th/cmp-emoji",
+            "quangnguyen30192/cmp-nvim-ultisnips",
+        },
+        config = function()
+            require("config.nvim-cmp")
+        end,
+    },
     -- Lualine (fancy status bar)
     {
         "nvim-lualine/lualine.nvim",
@@ -147,6 +154,9 @@ wk.register({ ["<leader>"] = {
     },
     p = {
         name = "Package Manager",
+    },
+    l = {
+        name = "LazyGit",
     },
     s  = {
         name = "Enviornment",

@@ -25,3 +25,7 @@ current_theme = "rose-pine"
 
 color = color or current_theme
 vim.cmd.colorscheme(color)
+
+vim.cmd([[
+"ToggleWhitespaces"
+]])

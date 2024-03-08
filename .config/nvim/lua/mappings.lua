@@ -3,18 +3,18 @@ local api = vim.api
 local uv = vim.loop
 local builtin = require('telescope.builtin')
 
+-- Insert Mode
+    -- Cursor
+-- keymap.set('i', '<C-h>', )
+
 -- Normal Mode Maps
-    -- Packages etc 
+    -- Packages etc
 keymap.set('n', '<leader>po', '<cmd>Lazy<cr>', { desc = "Open Lazy Package Manager" })
 keymap.set('n', '<leader>pm', '<cmd>Mason<cr>', { desc = "Open Mason" })
     -- Toggles
-keymap.set('n', '<leader>tw', function()
-    cmd([[
-        set wrap!
-    ]])
-    notify("Wrapping toggled", vim.log.levels.INFO, { title = "wrapping" })
-end, 
-    { desc = "Toggle wrapping" })
+keymap.set('n', '<leader>tw', '<cmd>set wrap!<cr>', { desc = "Toggle wrapping" })
+keymap.set('n', '<leader>tn', '<cmd>set number!<cr>', { desc = "Toggle line numbers" })
+keymap.set('n', '<leader>tr', '<cmd>set relativenumber!<cr>', { desc = "Toggle relative numbers" })
     -- Telescope
 keymap.set('n', '<leader>ff', builtin.find_files, { desc = "Find files" })
 keymap.set('n', '<leader>fg', builtin.git_files, { desc = "Find files in git" })
@@ -42,5 +42,5 @@ end, {
   desc = "reload init.lua",
 })
 
-keymap.set("n", "<leader><space>", "<cmd>StripTrailingWhitespace<cr>", { desc = "Remove trailing space" })
+keymap.set("n", "<leader><space>", "<cmd>StripWhitespace<cr>", { desc = "Remove trailing space" })
 keymap.set("i", "jj", "<Esc>", { silent = true, desc = "Return to Normal Mode from Insert" })
