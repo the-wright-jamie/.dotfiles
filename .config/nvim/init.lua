@@ -5,6 +5,7 @@ local core_conf_files = {
 	"globals.lua",
 	"plugins.lua",
 	"mappings.lua",
+    "dap-config.lua",
 }
 
 local viml_conf_dir = vim.fn.stdpath("config") .. "/vim_lang"

@@ -8,6 +8,9 @@ local builtin = require('telescope.builtin')
 -- keymap.set('i', '<C-h>', )
 
 -- Normal Mode Maps
+    -- Buffer navigation
+keymap.set('n', '<leader>bn', '<cmd>bn<cr>', { desc = "Next buffer" })
+keymap.set('n', '<leader>bp', '<cmd>bp<cr>', { desc = "Previous buffer" })
     -- Packages etc
 keymap.set('n', '<leader>po', '<cmd>Lazy<cr>', { desc = "Open Lazy Package Manager" })
 keymap.set('n', '<leader>pm', '<cmd>Mason<cr>', { desc = "Open Mason" })
@@ -16,6 +19,8 @@ keymap.set('n', '<leader>tw', '<cmd>set wrap!<cr>', { desc = "Toggle wrapping" }
 keymap.set('n', '<leader>tn', '<cmd>set number!<cr>', { desc = "Toggle line numbers" })
 keymap.set('n', '<leader>tr', '<cmd>set relativenumber!<cr>', { desc = "Toggle relative numbers" })
 keymap.set('n', '<leader>tt', '<cmd>Trouble<cr>', { desc = "Toggle Trouble" })
+keymap.set('n', '<leader>tb', "<cmd>lua require'dap'.toggle_breakpoint()<cr>", { desc = "Toggle Breakpoint" })
+keymap.set('n', '<leader>td', "<cmd>lua require'dapui'.toggle()<cr>", { desc = "Toggle DAP-UI" })
     -- Telescope
 keymap.set('n', '<leader>ff', builtin.find_files, { desc = "Find files" })
 keymap.set('n', '<leader>fg', builtin.git_files, { desc = "Find files in git" })
@@ -30,7 +35,6 @@ keymap.set("n", "<leader>Q", "<cmd>wqa<cr>", { silent = true, desc = "Save all b
 keymap.set("n", "<leader>x", "<cmd>bd<cr>", { silent = true, desc = "Close buffer"})
 keymap.set("n", "<leader>q", "<cmd>q<cr>", { silent = true, desc = "Quit"})
 keymap.set("n", "<leader>w", "<cmd>wa<cr>", { desc = "Save all open buffers" })
-
     -- Reload Config
 keymap.set("n", "<leader>sv", function()
   vim.cmd([[

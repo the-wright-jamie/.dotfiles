@@ -14,6 +14,9 @@ vim.opt.rtp:prepend(lazypath)
 
 -- specify plugins
 local plugin_specs = {
+    -- Debug Adapter Protocol
+    { "mfussenegger/nvim-dap" },
+    { "rcarriga/nvim-dap-ui" },
     -- auto-save
     {
         'pocco81/auto-save.nvim',
@@ -23,6 +26,7 @@ local plugin_specs = {
     {
         'mrcjkb/rustaceanvim',
         ft = { 'rust' },
+        lazy = false,
     },
     -- better syntax highlighting
     {
@@ -163,6 +167,9 @@ require("presence").setup({
 -- setup which-key group names
 local wk = require("which-key")
 wk.register({ ["<leader>"] = {
+    b = {
+        name = "Buffer navigation",
+    },
     g = {
         name = "Git",
     },
@@ -201,3 +208,6 @@ require('mason-lspconfig').setup({
     lsp_zero.default_setup,
   },
 })
+
+require("dapui").setup()
+
