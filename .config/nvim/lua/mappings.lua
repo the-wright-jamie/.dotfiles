@@ -15,6 +15,7 @@ keymap.set('n', '<leader>pm', '<cmd>Mason<cr>', { desc = "Open Mason" })
 keymap.set('n', '<leader>tw', '<cmd>set wrap!<cr>', { desc = "Toggle wrapping" })
 keymap.set('n', '<leader>tn', '<cmd>set number!<cr>', { desc = "Toggle line numbers" })
 keymap.set('n', '<leader>tr', '<cmd>set relativenumber!<cr>', { desc = "Toggle relative numbers" })
+keymap.set('n', '<leader>tt', '<cmd>Trouble<cr>', { desc = "Toggle Trouble" })
     -- Telescope
 keymap.set('n', '<leader>ff', builtin.find_files, { desc = "Find files" })
 keymap.set('n', '<leader>fg', builtin.git_files, { desc = "Find files in git" })

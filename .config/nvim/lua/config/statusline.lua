@@ -20,7 +20,7 @@ local function trailing_space()
 
     local msg = ""
     if line_num ~= nil then
-        msg = string.format(" TRL")    
+        msg = string.format(" TRL")
     end
 
     return msg

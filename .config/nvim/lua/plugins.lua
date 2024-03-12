@@ -14,6 +14,16 @@ vim.opt.rtp:prepend(lazypath)
 
 -- specify plugins
 local plugin_specs = {
+    -- auto-save
+    {
+        'pocco81/auto-save.nvim',
+        lazy = false,
+    },
+    -- rust tools
+    {
+        'mrcjkb/rustaceanvim',
+        ft = { 'rust' },
+    },
     -- better syntax highlighting
     {
         "nvim-treesitter/nvim-treesitter",
@@ -75,7 +85,14 @@ local plugin_specs = {
     { 'williamboman/mason-lspconfig.nvim' },
     { 'VonHeikemen/lsp-zero.nvim', branch = 'v3.x' },
     { 'neovim/nvim-lspconfig' },
-    { 'L3MON4D3/LuaSnip' },
+    -- { 'L3MON4D3/LuaSnip' },
+    -- { 'saadparwaiz1/cmp_luasnip' },
+    { 'SirVer/ultisnips' },
+    -- { 'quangnguyen30192/cmp-nvim-ultisnips' },
+    {
+        "folke/trouble.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+    },
     {
         "hrsh7th/nvim-cmp",
         -- event = 'InsertEnter',
