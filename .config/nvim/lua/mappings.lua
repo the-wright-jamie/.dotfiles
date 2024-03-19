@@ -9,8 +9,8 @@ local builtin = require('telescope.builtin')
 
 -- Normal Mode Maps
     -- Buffer navigation
-keymap.set('n', '<leader>bn', '<cmd>bn<cr>', { desc = "Next buffer" })
-keymap.set('n', '<leader>bp', '<cmd>bp<cr>', { desc = "Previous buffer" })
+keymap.set('n', '<Tab>', '<cmd>bn<cr>', { desc = "Next buffer" })
+keymap.set('n', '<S-Tab>', '<cmd>bp<cr>', { desc = "Previous buffer" })
     -- Packages etc
 keymap.set('n', '<leader>po', '<cmd>Lazy<cr>', { desc = "Open Lazy Package Manager" })
 keymap.set('n', '<leader>pm', '<cmd>Mason<cr>', { desc = "Open Mason" })

@@ -112,6 +112,7 @@ require("lualine").setup {
                 },
             },
             "filetype",
+            'ctime',
         },
         lualine_z = {
             "location",

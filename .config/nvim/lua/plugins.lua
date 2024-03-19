@@ -14,6 +14,8 @@ vim.opt.rtp:prepend(lazypath)
 
 -- specify plugins
 local plugin_specs = {
+    -- ML Auto-complete
+    { 'TabbyML/vim-tabby' },
     -- Debug Adapter Protocol
     { "mfussenegger/nvim-dap" },
     { "rcarriga/nvim-dap-ui" },
@@ -25,8 +27,32 @@ local plugin_specs = {
     -- rust tools
     {
         'mrcjkb/rustaceanvim',
-        ft = { 'rust' },
-        lazy = false,
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "mfussenegger/nvim-dap",
+            {
+                "lvimuser/lsp-inlayhints.nvim",
+                opts = {}
+            },
+        },
+        ft = { "rust" },
+        config = function()
+            vim.g.rustaceanvim = {
+                inlay_hints = {
+                    highlight = "NonText",
+                },
+                tools = {
+                    hover_actions = {
+                        auto_focus = true,
+                    },
+                },
+                server = {
+                    on_attach = function(client, bufnr)
+                        require("lsp-inlayhints").on_attach(client, bufnr)
+                    end
+                }
+            }
+        end
     },
     -- better syntax highlighting
     {
@@ -122,6 +148,7 @@ local plugin_specs = {
             require("config.statusline")
         end,
     },
+    { "archibate/lualine-time" },
     -- Wakatime for tracking usage
     { "wakatime/vim-wakatime", lazy = false },
     -- decoration
@@ -167,9 +194,6 @@ require("presence").setup({
 -- setup which-key group names
 local wk = require("which-key")
 wk.register({ ["<leader>"] = {
-    b = {
-        name = "Buffer navigation",
-    },
     g = {
         name = "Git",
     },
@@ -210,4 +234,3 @@ require('mason-lspconfig').setup({
 })
 
 require("dapui").setup()
-

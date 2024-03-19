@@ -30,3 +30,9 @@ vim.cmd.colorscheme(color)
 vim.cmd([[
 "ToggleWhitespaces"
 ]])
+
+if vim.lsp.inlay_hint then
+  vim.lsp.inlay_hint.enable(0, true)
+end
+
+vim.g.tabby_keybinding_accept = '<Tab>'
