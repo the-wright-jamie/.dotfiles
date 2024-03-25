@@ -14,6 +14,8 @@ vim.opt.rtp:prepend(lazypath)
 
 -- specify plugins
 local plugin_specs = {
+    -- Git changes highlight
+    { "airblade/vim-gitgutter" },
     -- ML Auto-complete
     { 'TabbyML/vim-tabby' },
     -- Debug Adapter Protocol
