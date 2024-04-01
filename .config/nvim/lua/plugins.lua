@@ -21,6 +21,7 @@ local plugin_specs = {
     -- Debug Adapter Protocol
     { "mfussenegger/nvim-dap" },
     { "rcarriga/nvim-dap-ui" },
+    { "nvim-neotest/nvim-nio" },
     -- auto-save
     {
         'pocco81/auto-save.nvim',
