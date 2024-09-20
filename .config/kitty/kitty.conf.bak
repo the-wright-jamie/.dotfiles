@@ -11,8 +11,8 @@ visual_bell_duration 0.5
 window_alert_on_bell yes
 
 # BEGIN_KITTY_THEME
-# Cyberpunk
-# include current-theme.conf
+# Argonaut
+include current-theme.conf
 # END_KITTY_THEME
 
 include nerd-fonts.conf
