@@ -22,6 +22,7 @@ ZSH_THEME="robbyrussell"
 # ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 plugins=(zsh-syntax-highlighting zsh-autosuggestions)
+ENABLE_CORRECTION="true"
 
 zstyle ':omz:update' frequency 30
 zstyle ':omz:update' mode auto
