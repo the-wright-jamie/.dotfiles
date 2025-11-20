@@ -40,6 +40,7 @@ curl -fsSL https://bun.com/install | bash
 
 # enable docker
 sudo systemctl enable --now docker
+sudo setfacl --modify user:yokai:rw /var/run/docker.sock
 
 # setup config
 mkdir .icons
