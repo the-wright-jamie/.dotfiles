@@ -7,7 +7,7 @@ Here be .dotfiles and provisioning scripts...
 ```zsh
 # For MacOS
 export ZSH="/Users/[username]/.oh-my-zsh"
-source .zshrc-common
+source ~/.zshrc-common
 
 echo "Local, non-sync setup..."
 
@@ -22,5 +22,5 @@ export PATH="$PATH:[whatever]"
 alias project='cd ~/GitHub/[project]'
 export API_KEY=""
 
-source .zshrc-macos
+source ~/.zshrc-macos
 ```
