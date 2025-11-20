@@ -12,11 +12,6 @@ echo "\033[1;34m  _ / /\__ \ | | | | | (__  "
 echo "\033[1;35m (_)___|___/_| |_|_|  \___| "
 echo "\033[1;0m"
 
-echo "Attempting to pull latest config..."
-cd .dotfiles
-git pull
-cd ..
-
 echo "Setting Oh My Zsh variables..."
 ZSH_THEME="robbyrussell"
 # ENABLE_CORRECTION="true"
