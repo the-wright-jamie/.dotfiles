@@ -1,0 +1,57 @@
+# local .zshrc should set up ZSH dirs etc
+# as well as any local aliases we may want
+
+# ! MAKE SURE YOU IMPORT THE OS SPECIFIC .zshrc
+# ! IN THE MAIN ONE TOO!
+
+echo "\033[1;31m            _               "
+echo "\033[1;33m           | |              "
+echo "\033[1;32m    _______| |__  _ __ ___  "
+echo "\033[1;36m   |_  / __| '_ \| '__/ __| "
+echo "\033[1;34m  _ / /\__ \ | | | | | (__  "
+echo "\033[1;35m (_)___|___/_| |_|_|  \___| "
+echo "\033[1;0m"
+
+echo "Attempting to pull latest config..."
+cd .dotfiles
+git pull
+cd ..
+
+echo "Setting Oh My Zsh variables..."
+ZSH_THEME="robbyrussell"
+# ENABLE_CORRECTION="true"
+COMPLETION_WAITING_DOTS="true"
+plugins=(zsh-syntax-highlighting zsh-autosuggestions)
+
+zstyle ':omz:update' frequency 30
+zstyle ':omz:update' mode auto
+
+echo "Now loading Oh My Zsh..."
+source $ZSH/oh-my-zsh.sh
+
+echo "Setting alias'..."
+alias vimdiff='nvim -d'
+alias vim="nvim"
+alias vi="nvim"
+alias cat="bat"
+alias lg="lazygit"
+alias venv="source ~/.venv/bin/activate"
+alias icat="kitty icat"
+
+echo "Exporting custom variables..."
+export EDITOR=nvim
+
+echo "Sourcing scripts..."
+source ~/.scripts
+
+echo "Setting up completions..."
+# bun completions
+[ -s "/Users/james.wright/.bun/_bun" ] && source "/Users/james.wright/.bun/_bun"
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/james.wright/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
