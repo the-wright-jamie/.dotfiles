@@ -196,26 +196,35 @@ require("presence").setup({
 })
 -- setup which-key group names
 local wk = require("which-key")
-wk.register({ ["<leader>"] = {
-    g = {
-        name = "Git",
-    },
-    f = {
-        name = "File Searching",
-    },
-    p = {
-        name = "Package Manager",
-    },
-    l = {
-        name = "LazyGit",
-    },
-    s  = {
-        name = "Enviornment",
-    },
-    t = {
-        name = "Toggles",
-    }
-}})
+-- wk.register({ ["<leader>"] = {
+--     g = {
+--         name = "Git",
+--     },
+--     f = {
+--         name = "File Searching",
+--     },
+--     p = {
+--         name = "Package Manager",
+--     },
+--     l = {
+--         name = "LazyGit",
+--     },
+--     s  = {
+--         name = "Enviornment",
+--     },
+--     t = {
+--         name = "Toggles",
+--     }
+-- }})
+wk.add({
+    { "<leader>f", group = "File Searching" },
+    { "<leader>g", group = "Git" },
+    { "<leader>l", group = "LazyGit" },
+    { "<leader>p", group = "Package Manager" },
+    { "<leader>s", group = "Enviornment" },
+    { "<leader>t", group = "Toggles" },
+})
+
 -- LSP Keybindings
 local lsp_zero = require('lsp-zero')
 

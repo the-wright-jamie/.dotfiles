@@ -10,9 +10,11 @@ visual_bell_duration 0.5
 # visual_bell_color black
 window_alert_on_bell yes
 
+cursor_trail 3
+
 # BEGIN_KITTY_THEME
-# Argonaut
-include current-theme.conf
+# Cyberpunk
+# include current-theme.conf
 # END_KITTY_THEME
 
 include nerd-fonts.conf
