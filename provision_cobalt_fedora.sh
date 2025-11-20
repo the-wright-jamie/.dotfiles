@@ -24,7 +24,9 @@ sudo dnf-3 config-manager --add-repo https://download.docker.com/linux/fedora/do
 sudo dnf config-manager setopt google-chrome.enabled=1
 
 # install packages
-sudo dnf install --skip-unavailable -y google-chrome-stable discord steam zsh code Sunshine gnome-tweaks curl git stow kitty openrgb fira-code-fonts lazygit nvim fastfetch bat zsh-syntax-highlighting zsh-autosuggestions
+sudo dnf install --skip-unavailable -y google-chrome-stable discord steam zsh code Sunshine gnome-tweaks curl git stow kitty openrgb fira-code-fonts lazygit nvim fastfetch bat golang
+
+go install github.com/air-verse/air@latest
 
 ## Docker - separated to keep clean
 sudo dnf install --skip-unavailable -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
