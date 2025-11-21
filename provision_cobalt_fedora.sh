@@ -8,6 +8,12 @@ sudo dnf install -y fedora-workstation-repositories
 ## RPM Fusion
 sudo dnf install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
+## ProtonVPN
+wget "https://repo.protonvpn.com/fedora-$(cat /etc/fedora-release | cut -d' ' -f 3)-stable/protonvpn-stable-release/protonvpn-stable-release-1.0.3-1.noarch.rpm"
+sudo dnf install ./protonvpn-stable-release-1.0.3-1.noarch.rpm && sudo dnf check-update --refresh
+rm -rf protonvpn-stable-release-1.0.3-1.noarch.rpm
+
+
 ## VS Code
 rpm --import https://packages.microsoft.com/keys/microsoft.asc -y
 echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null
@@ -24,7 +30,7 @@ sudo dnf-3 config-manager --add-repo https://download.docker.com/linux/fedora/do
 sudo dnf config-manager setopt google-chrome.enabled=1
 
 # install packages
-sudo dnf install --skip-unavailable -y google-chrome-stable discord steam zsh code Sunshine gnome-tweaks curl git stow kitty openrgb fira-code-fonts lazygit nvim fastfetch bat golang
+sudo dnf install --skip-unavailable -y google-chrome-stable discord steam zsh code Sunshine gnome-tweaks curl git stow kitty openrgb fira-code-fonts lazygit nvim fastfetch bat golang proton-vpn-gnome-desktop
 
 go install github.com/air-verse/air@latest
 
