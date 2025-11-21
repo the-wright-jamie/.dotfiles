@@ -7,5 +7,5 @@ Here be provisioning scripts that can be accessed via the-wright-jamie/.dotfiles
 Provision
 
 ```bash
-sh -c "$(curl -sS https://the-wright-jamie.dev/.dotfiles/provision_cobalt_fedora.sh)"
+sh -c "$(curl -sS https://setup.the-wright-jamie.dev/provision_cobalt_fedora.sh)"
 ```
